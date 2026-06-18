@@ -5,12 +5,12 @@ import prettyCssModules from 'vite-plugin-pretty-css-modules';
 export default defineConfig({
   plugins: [react(), prettyCssModules()],
   server: {
-    port: 3000,
+    port: 3001,
     host: true,
     open: true,
     cors: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'http://localhost:3001',
     },
   },
 });

@@ -4,7 +4,10 @@ import {
   CAREERS_RESUME_ACCEPT,
   CAREERS_RESUME_MAX_BYTES,
   isAcceptedResumeFile,
+  isValidCareerLinkedIn,
+  isValidCareerPhoneNumber,
 } from '../../../data/careers';
+import CareerPhoneInput, { DEFAULT_PHONE_COUNTRY_CODE } from './CareerPhoneInput';
 
 type CareerApplicationModalProps = {
   job: CareerJob;
@@ -16,7 +19,8 @@ type CareerApplicationModalProps = {
 type FormState = {
   name: string;
   email: string;
-  phone: string;
+  phoneCountryCode: string;
+  phoneNumber: string;
   linkedin: string;
   message: string;
 };
@@ -28,7 +32,8 @@ type FormErrors = Partial<Record<keyof FormState, string>> & {
 const emptyForm: FormState = {
   name: '',
   email: '',
-  phone: '',
+  phoneCountryCode: DEFAULT_PHONE_COUNTRY_CODE,
+  phoneNumber: '',
   linkedin: '',
   message: '',
 };
@@ -99,6 +104,18 @@ export default function CareerApplicationModal({
     if (!form.email.trim()) nextErrors.email = 'Please enter your email';
     else if (!emailRegex.test(form.email.trim())) nextErrors.email = 'Please enter a valid email';
 
+    if (!form.phoneNumber.trim()) {
+      nextErrors.phoneNumber = 'Please enter your phone number';
+    } else if (!isValidCareerPhoneNumber(form.phoneCountryCode, form.phoneNumber)) {
+      nextErrors.phoneNumber = 'Please enter a valid phone number (7–12 digits)';
+    }
+
+    if (!form.linkedin.trim()) {
+      nextErrors.linkedin = 'Please enter your LinkedIn profile URL';
+    } else if (!isValidCareerLinkedIn(form.linkedin)) {
+      nextErrors.linkedin = 'LinkedIn URL must start with https://www.linkedin.com/in/';
+    }
+
     if (!resumeFile) {
       nextErrors.resume = 'Please upload your resume';
     } else if (!isAcceptedResumeFile(resumeFile)) {
@@ -163,25 +180,29 @@ export default function CareerApplicationModal({
               {errors.email ? <p className="careers-field-error">{errors.email}</p> : null}
             </div>
             <div className="col-md-6">
-              <label htmlFor="careerApplyPhone">Phone</label>
-              <input
-                id="careerApplyPhone"
-                type="tel"
-                className="form-control"
-                value={form.phone}
-                onChange={(event) => updateField('phone', event.target.value)}
+              <label htmlFor="careerApplyPhone">Phone *</label>
+              <CareerPhoneInput
+                countryCode={form.phoneCountryCode}
+                phoneNumber={form.phoneNumber}
+                onCountryCodeChange={(value) => {
+                  updateField('phoneCountryCode', value);
+                  setErrors((current) => ({ ...current, phoneNumber: undefined }));
+                }}
+                onPhoneNumberChange={(value) => updateField('phoneNumber', value)}
+                error={errors.phoneNumber}
               />
-              {errors.phone ? <p className="careers-field-error">{errors.phone}</p> : null}
             </div>
             <div className="col-md-6">
-              <label htmlFor="careerApplyLinkedin">LinkedIn</label>
+              <label htmlFor="careerApplyLinkedin">LinkedIn *</label>
               <input
                 id="careerApplyLinkedin"
+                type="url"
                 className="form-control"
                 value={form.linkedin}
                 onChange={(event) => updateField('linkedin', event.target.value)}
-                placeholder="https://linkedin.com/in/..."
+                placeholder="https://www.linkedin.com/in/your-profile"
               />
+              {errors.linkedin ? <p className="careers-field-error">{errors.linkedin}</p> : null}
             </div>
             <div className="col-12">
               <label htmlFor="careerApplyResume">Resume *</label>

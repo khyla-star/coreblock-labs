@@ -79,85 +79,6 @@ export const founders: CareerPerson[] = [
 
 export const openRoles: CareerJob[] = [
   {
-    id: 'ai-engineer-intern',
-    title: 'AI Engineer',
-    level: 'Trainee / Intern',
-    location: 'Mumbai',
-    profile: [
-      'Basic understanding of programming (Python preferred)',
-      'Familiarity with AI/ML concepts such as machine learning, deep learning, and NLP',
-      'Exposure to TensorFlow, PyTorch, or Scikit-learn is preferred',
-    ],
-    skills: [
-      'Data preprocessing, analysis, and model training fundamentals',
-      'REST APIs and basic software development lifecycle knowledge',
-      'Strong problem-solving and communication skills',
-    ],
-    responsibilities: [
-      'Assist in developing and implementing AI/ML models',
-      'Support data collection, cleaning, and preprocessing',
-      'Participate in requirement understanding, testing, and documentation',
-    ],
-    education: "Bachelor's in Computer Science, IT, AI, Data Science, or related field",
-  },
-  {
-    id: 'mvc-dotnet',
-    title: 'MVC .Net Developer',
-    level: 'Experience: 2–7 years',
-    location: 'Mumbai',
-    profile: [
-      'Working knowledge of C#, .NET MVC, Entity Framework, LINQ, and jQuery',
-      'Experience with MS SQL and Oracle databases',
-    ],
-    skills: [
-      'MVC.NET and REST-based web service development',
-      'ASP.NET, MSSQL, Oracle, and Entity Framework',
-      'Requirement elicitation and SDLC methodologies',
-    ],
-    responsibilities: [
-      'Analyze user requirements and document specifications',
-      'Develop and maintain web applications in the .NET stack',
-      'Maintain daily reporting and development documentation',
-    ],
-    education: "Bachelor's degree",
-  },
-  {
-    id: 'react-developer',
-    title: 'Experienced React JS Developer',
-    level: '3–8 years of experience',
-    location: 'Remote / Mumbai',
-    type: 'Full Time',
-    profile: ['3–8 years of experience in frontend web development'],
-    skills: [
-      'JavaScript, React.js, Redux, TypeScript, ES6, NPM, Webpack or Babel',
-      'HTML5, CSS, Bootstrap, Material UI, and charting libraries',
-      'RESTful APIs, React Hooks, Context, and Git version control',
-    ],
-    responsibilities: [
-      'Build scalable frontend applications from scratch using React',
-      'Collaborate on component architecture and state management',
-      'Deliver polished UI experiences integrated with backend services',
-    ],
-  },
-  {
-    id: 'dotnet-lead',
-    title: 'Project Lead / Technical Manager',
-    level: 'Experience: 8+ years',
-    location: 'Mumbai',
-    profile: ['Strong background in .NET MVC and enterprise application delivery'],
-    skills: [
-      'Technical leadership and team mentoring',
-      'Architecture design, code review, and delivery planning',
-      'Client communication and stakeholder management',
-    ],
-    responsibilities: [
-      'Lead development teams across planning, execution, and release',
-      'Own technical decisions and quality standards',
-      'Coordinate cross-functional delivery with product and QA',
-    ],
-    education: "Bachelor's degree in a relevant technical field",
-  },
-  {
     id: 'blockchain-developer',
     title: 'Blockchain Developer',
     level: 'Experience: 2–5 years',
@@ -166,27 +87,82 @@ export const openRoles: CareerJob[] = [
     profile: [
       'Experience with smart contracts and Web3 application development',
       'Understanding of EVM or similar blockchain ecosystems',
+      'Comfortable working with cross-functional product and engineering teams',
     ],
-    skills: ['Solidity, Hardhat/Foundry, Web3.js/ethers.js, and security best practices'],
+    skills: [
+      'Solidity, Hardhat/Foundry, Web3.js/ethers.js, and security best practices',
+      'Token standards, wallet integrations, and on-chain/off-chain architecture',
+      'Code review, testing, and deployment on testnet and mainnet',
+    ],
     responsibilities: [
       'Develop and audit smart contracts for client platforms',
       'Integrate wallets, tokens, and on-chain logic into product flows',
-      'Collaborate with full stack and product teams on delivery',
+      'Collaborate with full stack, frontend, and product teams on delivery',
     ],
   },
   {
-    id: 'fullstack-developer',
-    title: 'Full Stack Developer',
-    level: 'Experience: 3–6 years',
-    location: 'Mumbai',
+    id: 'web3-frontend-developer',
+    title: 'Web3 Frontend Developer',
+    level: 'Experience: 2–5 years',
+    location: 'Remote / Mumbai',
     type: 'Full Time',
-    profile: ['Strong experience across frontend and backend web development'],
-    skills: ['React, Node.js, TypeScript, SQL/NoSQL, REST APIs, and cloud deployment'],
-    responsibilities: [
-      'Own features from database schema to UI implementation',
-      'Write maintainable, tested code and participate in code reviews',
-      'Support production releases and incident resolution',
+    profile: [
+      'Strong frontend development experience with React and TypeScript',
+      'Familiarity with Web3 wallets, dApps, and blockchain UX patterns',
     ],
+    skills: [
+      'React, TypeScript, HTML5, CSS, and modern component architecture',
+      'ethers.js/viem, wallet connectors, and transaction flow handling',
+      'Responsive design, performance optimization, and accessibility basics',
+    ],
+    responsibilities: [
+      'Build polished dApp interfaces connected to smart contracts and APIs',
+      'Implement wallet connect, signing, and on-chain interaction flows',
+      'Partner with designers and backend/blockchain engineers on feature delivery',
+    ],
+  },
+  {
+    id: 'blockchain-fullstack-developer',
+    title: 'Blockchain Full Stack Developer',
+    level: 'Experience: 3–6 years',
+    location: 'Remote / Mumbai',
+    type: 'Full Time',
+    profile: [
+      'End-to-end web development experience across frontend and backend',
+      'Exposure to blockchain integrations, APIs, and Web3 product delivery',
+    ],
+    skills: [
+      'React, Node.js, TypeScript, REST/GraphQL APIs, and SQL/NoSQL databases',
+      'Smart contract integration, indexing services, and cloud deployment',
+      'Git, code review, and production release practices',
+    ],
+    responsibilities: [
+      'Own features from database and API design through UI implementation',
+      'Integrate blockchain services, wallets, and backend systems',
+      'Write maintainable, tested code and support production releases',
+    ],
+  },
+  {
+    id: 'product-manager',
+    title: 'Product Manager',
+    level: 'Experience: 3–6 years',
+    location: 'Remote / Mumbai',
+    type: 'Full Time',
+    profile: [
+      'Experience shipping B2B or technical products in software or Web3',
+      'Strong stakeholder communication and roadmap planning skills',
+    ],
+    skills: [
+      'Requirements gathering, user stories, and agile delivery',
+      'Cross-functional coordination with engineering, design, and clients',
+      'Metrics, prioritization, and go-to-market collaboration',
+    ],
+    responsibilities: [
+      'Translate client goals into clear product roadmaps and milestones',
+      'Align engineering and design around measurable outcomes',
+      'Own release planning, feedback loops, and delivery communication',
+    ],
+    education: "Bachelor's degree in a relevant field or equivalent experience",
   },
   {
     id: 'product-designer',
@@ -194,25 +170,15 @@ export const openRoles: CareerJob[] = [
     level: 'Experience: 2–5 years',
     location: 'Remote / Mumbai',
     type: 'Full Time',
-    profile: ['Portfolio demonstrating UX/UI for web or mobile products'],
+    profile: [
+      'Portfolio demonstrating UX/UI for web, mobile, or complex technical products',
+      'Ability to simplify blockchain and enterprise workflows for end users',
+    ],
     skills: ['Figma, design systems, prototyping, and user research basics'],
     responsibilities: [
       'Create wireframes, flows, and high-fidelity designs for client products',
       'Partner with engineering to ensure feasible, accessible implementations',
       'Iterate based on feedback from stakeholders and users',
-    ],
-  },
-  {
-    id: 'python',
-    title: 'Python Developer',
-    level: 'Experience: 1–4 years',
-    location: 'Mumbai',
-    profile: ['Strong Python development fundamentals'],
-    skills: ['Python, web frameworks, databases, and API development'],
-    responsibilities: [
-      'Build backend services, scripts, and automation tooling',
-      'Collaborate on scalable architecture and integrations',
-      'Contribute to testing and continuous improvement',
     ],
   },
 ];
@@ -249,4 +215,28 @@ export const careerAwards: CareerAward[] = [
 
 export function getJobById(jobId: string): CareerJob | undefined {
   return openRoles.find((job) => job.id === jobId);
+}
+
+const LOCAL_PHONE_DIGIT_COUNT = { min: 7, max: 12 };
+
+export function isValidCareerPhoneNumber(countryCode: string, localNumber: string): boolean {
+  if (!/^\+\d{1,4}$/.test(countryCode.trim())) return false;
+
+  const digits = localNumber.replace(/\D/g, '');
+  if (!digits) return false;
+
+  return (
+    digits.length >= LOCAL_PHONE_DIGIT_COUNT.min &&
+    digits.length <= LOCAL_PHONE_DIGIT_COUNT.max
+  );
+}
+
+export function formatCareerPhone(countryCode: string, localNumber: string): string {
+  const digits = localNumber.replace(/\D/g, '');
+  return `${countryCode.trim()} ${digits}`;
+}
+
+export function isValidCareerLinkedIn(url: string): boolean {
+  const trimmed = url.trim();
+  return /^https:\/\/www\.linkedin\.com\/in\/[\w%-]+\/?(\?.*)?$/i.test(trimmed);
 }
