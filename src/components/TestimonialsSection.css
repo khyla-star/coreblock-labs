@@ -1,0 +1,71 @@
+.testimonials-carousel .testimonial-slide {
+  padding: 0 15px;
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .testimonials-carousel .testimonial-slide {
+    padding: 0 8px;
+  }
+
+  .testimonials-carousel-dots {
+    margin-top: 1.5rem;
+  }
+}
+
+.testimonials-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonials-carousel-track {
+  display: flex;
+  width: calc(100% * var(--total-slides) / var(--visible-count));
+  transform: translateX(calc(-100% * var(--active-index) / var(--total-slides)));
+  transition: transform 0.5s ease;
+}
+
+.testimonials-carousel-track .testimonial-slide {
+  flex: 0 0 calc(100% / var(--total-slides));
+  max-width: calc(100% / var(--total-slides));
+}
+
+.testimonials-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 0;
+  margin: 40px 0 0;
+  list-style: none;
+}
+
+.testimonials-carousel-dots li {
+  margin: 0;
+}
+
+.testimonials-carousel-dots li button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+}
+
+.testimonials-carousel-dots li button::before {
+  content: '•';
+  font-size: 10px;
+  line-height: 10px;
+  color: var(--text-black);
+  opacity: 0.2;
+  position: absolute;
+  inset: 0;
+}
+
+.testimonials-carousel-dots li.is-active button::before {
+  opacity: 1;
+}

@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Site-wide responsive refinements
+   ========================================================================== */
+
+/* Tiered horizontal gutters — match desktop rhythm on tablet/mobile */
+@media (min-width: 576px) and (max-width: 1439.98px) {
+  .container,
+  .container-fluid {
+    padding-left: clamp(1.25rem, 4vw, 3.5rem);
+    padding-right: clamp(1.25rem, 4vw, 3.5rem);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container,
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .carousel-content {
+    min-height: auto;
+    padding: 7rem 0 4.5rem;
+  }
+
+  .hero-section .carousel-indicators {
+    bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .carousel-content {
+    padding: 6.5rem 0 4rem;
+  }
+
+  .badge-primary {
+    padding: 8px 14px;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-image img {
+    max-height: min(550px, 72vh);
+    object-fit: contain;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Work section
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .card_stack_item {
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .card-info {
+    gap: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .stats_wrap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .item_media {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .card-stack-nav--mobile {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0 1.5rem;
+  }
+
+  .card-stack-nav--mobile .card-stack-dots {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .card-stack-nav--mobile .card-stack-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, width 0.2s ease;
+  }
+
+  .card-stack-nav--mobile .card-stack-dot:hover,
+  .card-stack-nav--mobile .card-stack-dot:focus-visible {
+    background: rgba(0, 0, 0, 0.4);
+    outline: none;
+  }
+
+  .card-stack-nav--mobile .card-stack-dot.active {
+    width: 28px;
+    height: 12px;
+    border-radius: 6px;
+    background: var(--primary-bg);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .Work-section .section-header .title {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+    padding-inline: 0.25rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Industries — touch-friendly overlays
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .industry-card-overlay {
+    transform: translateY(0);
+  }
+
+  .industry-tags {
+    opacity: 1;
+  }
+
+  .industries-bento .bento-large {
+    min-height: 460px;
+  }
+
+  .industries-bento .bento-right-top,
+  .industries-bento .bento-right-bottom,
+  .industries-bento .bento-bottom-left,
+  .industries-bento .bento-bottom-right {
+    min-height: 360px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 991.98px) {
+  .industries-bento {
+    gap: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   CTA band
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .cta-section-v2 .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  .cta-section-v2 .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-section-v2 .cta-content h2 {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Contact forms
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .contact-card-wrapper {
+    margin-inline: 0;
+  }
+
+  .contact-form-container {
+    padding: 1.25rem !important;
+  }
+
+  .contact-hero .form-panel,
+  .contact-hero .project-panel {
+    padding: 1.25rem;
+  }
+
+  .contact-hero .row.g-4 {
+    --bs-gutter-y: 1rem;
+  }
+
+  .hear-section .contact-card-content {
+    height: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section titles & touch targets
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .section-header .title,
+  .section-header-2 .title-2 {
+    font-size: clamp(1.35rem, 5vw, 1.85rem);
+  }
+
+  .btn-primary {
+    padding: 12px 24px;
+    min-height: 44px;
+  }
+
+  .custom-spacing-y {
+    padding-block: clamp(2.5rem, 8vw, 4rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Why-choose / capability grids on service pages
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .why-choose-section .why-feature {
+    text-align: center;
+    align-items: center;
+  }
+
+  .capability-card {
+    width: calc(50% - 12px);
+    min-width: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .capability-card {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Footer background watermark
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .footer-modern-top {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-modern .footer-logo-link {
+    margin-inline: auto;
+  }
+}

@@ -1,0 +1,123 @@
+.navbar-nav .nav-link.active {
+  font-weight: 600;
+}
+
+.custom-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+}
+
+.custom-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.custom-logo-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1;
+}
+
+.custom-logo-accent {
+  background: linear-gradient(130deg, #d946ef 0%, #b921db 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 1200px) {
+  #mainNav > .container-fluid {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+
+  #mainNav .navbar-collapse {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+
+  #mainNav .navbar-nav {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+/* Match header inner width to site content gutters */
+#mainNav > .container-fluid {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 576px) and (max-width: 1439.98px) {
+  #mainNav > .container-fluid {
+    padding-left: clamp(1.25rem, 4vw, 3.5rem);
+    padding-right: clamp(1.25rem, 4vw, 3.5rem);
+  }
+}
+
+@media (max-width: 575.98px) {
+  #mainNav > .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  #mainNav > .container-fluid {
+    padding-left: var(--site-content-gutter);
+    padding-right: var(--site-content-gutter);
+  }
+}
+
+@media (max-width: 1199.98px) {
+  #mainNav .container-fluid {
+    position: relative;
+    z-index: 1051;
+  }
+
+  #mainNav .navbar-toggler {
+    position: relative;
+    z-index: 1052;
+  }
+
+  .navbar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1040;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    animation: navbar-backdrop-in 0.35s ease;
+  }
+
+  #navbarMega.show,
+  #navbarMega.sidebar-active {
+    transform: translateX(0);
+  }
+
+  #navbarMega .nav-link.active {
+    color: var(--secondary-bg, #b921db);
+    font-weight: 700;
+  }
+}
+
+@keyframes navbar-backdrop-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,6 @@
+:root {
+  --iti-path-flags-1x: url('https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/img/flags.webp');
+  --iti-path-flags-2x: url('https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/img/flags@2x.webp');
+  --iti-path-globe-1x: url('https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/img/globe.webp');
+  --iti-path-globe-2x: url('https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/img/globe@2x.webp');
+}

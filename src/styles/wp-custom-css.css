@@ -1,0 +1,9 @@
+/* Hide page title on Privacy Policy page only */
+body.page-id-1183 .page-title {
+    display: none;
+}
+
+/* Hide page title on Terms of service page only */
+body.page-id-1226 .page-title {
+    display: none;
+}
