@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-const WORK_SLIDE_COUNT = 7;
-
 export function useWorkSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -48,5 +46,5 @@ export function useWorkSection() {
     };
   }, []);
 
-  return { sectionRef, slideCount: WORK_SLIDE_COUNT };
+  return { sectionRef };
 }

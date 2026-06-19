@@ -30,7 +30,7 @@ export default function Navbar() {
         />
       ) : null}
 
-      <div className="container-fluid">
+              <div className="container-fluid">
         <Link
           to="/"
           className="custom-logo-link"
@@ -57,13 +57,13 @@ export default function Navbar() {
           onClick={() => setMenuOpen((open) => !open)}
         >
           <span className="navbar-toggler-icon" />
-        </button>
+                  </button>
 
         <div
           className={`collapse navbar-collapse${menuOpen ? ' show sidebar-active' : ''}`}
           id="navbarMega"
         >
-          <div className="sidebar-header d-flex justify-content-between align-items-center d-xl-none mb-3">
+                      <div className="sidebar-header d-flex justify-content-between align-items-center d-xl-none mb-3">
             <Link to="/" className="custom-logo-link" onClick={closeMenu}>
               <img
                 width={36}
@@ -82,7 +82,7 @@ export default function Navbar() {
               aria-label="Close menu"
               onClick={closeMenu}
             />
-          </div>
+                      </div>
 
           <ul className="navbar-nav ms-xl-auto align-items-xl-center">
             {mainNavItems.map((item) => (
@@ -98,9 +98,9 @@ export default function Navbar() {
                 </NavLink>
               </li>
             ))}
-          </ul>
-        </div>
-      </div>
-    </nav>
+                  </ul>
+                                  </div>
+              </div>
+          </nav>
   );
 }

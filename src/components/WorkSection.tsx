@@ -44,19 +44,6 @@ const workProjects = [
   },
   {
     id: 'work-card-3',
-    title: 'Auto Bids',
-    description:
-      'An AI-powered tool that automated the complete job-bidding process on Upwork. Auto Bid encourages startups, freelancers, and agencies to streamline their job search and acquire projects with minimal effort. With a plethora of features designed specifically for the platform users, it makes managing multiple jobs applications easy and efficient.',
-    stats: [
-      { label: 'Proposals Automated', value: '12', unit: 'K+' },
-      { label: 'Faster Job Acquisition', value: '3.6', unit: 'X' },
-    ],
-    mediaClass: 'item_media_4',
-    image: '/assets/autobid-1.webp',
-    imageAlt: 'Auto Bids',
-  },
-  {
-    id: 'work-card-4',
     title: 'Bookeep',
     description:
       'Bookeep is an innovative, AI-powered invoice management system that revolutionizes invoice handling. The platform successfully automates invoice management, allowing businesses to streamline their accounting process and build efficiency.',
@@ -69,7 +56,7 @@ const workProjects = [
     imageAlt: 'Bookeep',
   },
   {
-    id: 'work-card-5',
+    id: 'work-card-4',
     title: 'Phantom Galaxies',
     description:
       'Phantom Galaxies is an expansive web3, sci-fi MMO where players pilot giant mechs, explore galaxies, and own every asset they earn or acquire. It is a hybrid experience that blends traditional high-quality gameplay with decentralized asset ownership.',
@@ -82,7 +69,7 @@ const workProjects = [
     imageAlt: 'Phantom Galaxies',
   },
   {
-    id: 'work-card-6',
+    id: 'work-card-5',
     title: 'NemoLand Kingdom',
     description:
       'NemoLand Kingdom is a groundbreaking metaverse that redefines the way we experience, create and interact. It is a vibrant ecosystem that allows users to live, work, and socialize supported by the seamless functionality of HZM cryptocurrency.',
@@ -105,7 +92,7 @@ const workProjects = [
 }>;
 
 export default function WorkSection() {
-  const { sectionRef, slideCount } = useWorkSection();
+  const { sectionRef } = useWorkSection();
 
   const scrollToCard = useCallback((index: number) => {
     document.getElementById(`work-card-${index}`)?.scrollIntoView({
@@ -181,7 +168,7 @@ export default function WorkSection() {
 
             <div className="card-stack-nav d-lg-flex d-none align-items-center">
               <div className="card-stack-dots">
-                {Array.from({ length: slideCount }, (_, index) => (
+                {Array.from({ length: workProjects.length }, (_, index) => (
                   <button
                     key={index}
                     type="button"
@@ -195,7 +182,7 @@ export default function WorkSection() {
 
             <div className="card-stack-nav card-stack-nav--mobile d-lg-none">
               <div className="card-stack-dots">
-                {Array.from({ length: slideCount }, (_, index) => (
+                {Array.from({ length: workProjects.length }, (_, index) => (
                   <button
                     key={index}
                     type="button"

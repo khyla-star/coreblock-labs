@@ -42,10 +42,10 @@ export default function IndustriesSection() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <section className="industries-section custom-spacing-y">
-      <div className="container-fluid">
-        <div className="industries-container">
-          <div className="section-header text-center">
+      <section className="industries-section custom-spacing-y">
+           <div className="container-fluid">
+               <div className="industries-container">
+                   <div className="section-header text-center">
             <SectionTitle
               lines={['Shaking up things… ', 'One Industry at a time!']}
               ariaLabel="Shaking up things… One Industry at a time!"
@@ -59,10 +59,10 @@ export default function IndustriesSection() {
                   We help industries transform operations by embedding intelligence, trust, and
                   decentralized infrastructure into the digital core — unlocking efficiency, scale,
                   and long-term value.
-                </div>
-              </div>
-            </div>
-          </div>
+                                                                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
 
           <div className="industries-carousel">
             {industryBentoSlides.map((slide, index) => (
@@ -74,7 +74,7 @@ export default function IndustriesSection() {
                 id={`industries-slide-${index}`}
               >
                 <BentoSlide slide={slide} />
-              </div>
+                                                                                                    </div>
             ))}
 
             <CarouselDots
@@ -84,9 +84,9 @@ export default function IndustriesSection() {
               onSelect={setActiveSlide}
               idPrefix="industries-slide"
             />
-          </div>
-        </div>
-      </div>
-    </section>
+                                               </div>
+               </div>
+           </div>
+       </section>
   );
 }
