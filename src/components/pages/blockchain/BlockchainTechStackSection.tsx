@@ -582,7 +582,7 @@ export default function BlockchainTechStackSection() {
                                                           <div className="tech-card">
 
                                                               <div className="tech-icon">
-                                                                                                                                  <img src="/assets/move.svg" alt="move" className="" />
+                                                                  <img src="/assets/Move.svg" alt="Move" className="" />
                                                                                                                           </div>
 
                                                               <span className="tech-name">
