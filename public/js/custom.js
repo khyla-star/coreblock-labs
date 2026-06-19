@@ -147,6 +147,8 @@ const lenis = new Lenis({
     prevent: () => isInnerScrolling || isWorkSectionHovered
 });
 
+window.siteLenis = lenis;
+
 lenis.on('scroll', ScrollTrigger.update);
 
 gsap.ticker.add((time) => {

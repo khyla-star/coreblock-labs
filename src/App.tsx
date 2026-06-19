@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import ScrollToTop from './components/ScrollToTop';
 import AppLayout from './layouts/AppLayout';
 import AiPage from './pages/AiPage';
 import BlockchainPage from './pages/BlockchainPage';
@@ -14,6 +15,7 @@ const CareersJobPage = lazy(() => import('./pages/CareersJobPage'));
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<HomePage />} />

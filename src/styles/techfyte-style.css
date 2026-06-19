@@ -1761,15 +1761,24 @@ section .slick-dots li.slick-active button {
 
 .media_wrap {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  min-height: 280px;
 }
 
 .item_media {
   max-width: 600px;
+  width: 100%;
   margin: auto;
   padding: 20px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
 
 .media_wrap.item_media_1 {
@@ -1875,6 +1884,8 @@ section .slick-dots li.slick-active button {
 
   .media_wrap {
     width: 50%;
+    min-height: 100%;
+    align-self: stretch;
   }
 
   .padding-global {
@@ -1939,6 +1950,9 @@ section .slick-dots li.slick-active button {
   }
   .media_wrap {
     border-radius: 0;
+    width: 100%;
+    min-height: 260px;
+    margin-top: 1.5rem;
   }
   .card_stack_item {
     padding: 40px 20px;

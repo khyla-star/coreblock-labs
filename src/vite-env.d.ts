@@ -33,6 +33,11 @@ declare global {
       on: (event: string, handler: () => void) => void;
       raf: (time: number) => void;
     };
+    siteLenis?: {
+      scrollTo: (target: number, options?: { immediate?: boolean }) => void;
+      on?: (event: string, handler: () => void) => void;
+      off?: (event: string, handler: () => void) => void;
+    };
     grecaptcha?: { reset: () => void };
     bootstrap?: {
       Modal: {

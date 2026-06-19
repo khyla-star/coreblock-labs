@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Footer from '../components/Footer';
+import BackToTopButton from '../components/BackToTopButton';
 import Navbar from '../components/Navbar';
 import { useBodyClass } from '../hooks/useBodyClass';
 import { useSiteInit } from '../hooks/useSiteInit';
@@ -27,6 +28,7 @@ export default function AppLayout() {
       <Navbar />
       <Outlet />
       <Footer />
+      <BackToTopButton />
     </>
   );
 }

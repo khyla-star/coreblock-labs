@@ -80,7 +80,6 @@ const workProjects = [
     mediaClass: 'item_media_6',
     image: '/assets/phantom-1.webp',
     imageAlt: 'Phantom Galaxies',
-    imageClassName: 'item_media w-100 nsfw-detected',
   },
   {
     id: 'work-card-6',
@@ -103,7 +102,6 @@ const workProjects = [
   mediaClass: string;
   image: string;
   imageAlt: string;
-  imageClassName?: string;
 }>;
 
 export default function WorkSection() {
@@ -171,13 +169,12 @@ export default function WorkSection() {
                     </div>
                   </div>
 
-                  <div className={`media_wrap ${project.mediaClass}`}>
-                    <img
-                      src={project.image}
-                      className={project.imageClassName ?? 'item_media w-100'}
-                      alt={project.imageAlt}
-                    />
-                  </div>
+                  <div
+                    className={`media_wrap ${project.mediaClass}`}
+                    role="img"
+                    aria-label={project.imageAlt}
+                    style={{ backgroundImage: `url(${project.image})` }}
+                  />
                 </div>
               ))}
             </div>

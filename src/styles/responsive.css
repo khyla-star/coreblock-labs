@@ -93,11 +93,6 @@
     gap: 1rem;
   }
 
-  .item_media {
-    padding: 12px;
-    max-width: 100%;
-  }
-
   .card-stack-nav--mobile {
     display: flex;
     justify-content: center;
