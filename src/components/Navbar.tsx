@@ -89,6 +89,7 @@ export default function Navbar() {
               <li key={item.path} className="nav-item">
                 <NavLink
                   to={item.path}
+                  end={item.path === '/'}
                   className={({ isActive }) =>
                     `nav-link${isActive ? ' active' : ''}`
                   }

@@ -1117,6 +1117,41 @@ body.sidebar-open {
   width: auto;
 }
 
+.hero-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero-image-wrap img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-section .hero-image-wrap,
+.blockchain-hero .hero-image-wrap {
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-section .hero-image-wrap img,
+.blockchain-hero .hero-image-wrap img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 720px;
+  max-height: 680px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .current-slide {
   font-size: 2.5rem;
   font-weight: 700;
@@ -1182,8 +1217,15 @@ body.sidebar-open {
     min-height: 640px;
   }
 
-  .carousel-image img {
-    max-height: 550px;
+  .hero-section .hero-image-wrap img,
+  .blockchain-hero .hero-image-wrap img {
+    max-height: 620px;
+    max-width: 640px;
+  }
+
+  .blockchain-hero--web3 .hero-image-wrap img {
+    max-width: 480px;
+    max-height: 360px;
   }
 
   .hero-section .carousel-indicators {
@@ -1208,11 +1250,19 @@ body.sidebar-open {
     padding: 80px 0;
   }
 
-  .carousel-image img {
-    min-height: 470px;
-    max-height: 76dvh;
+  .hero-section .hero-image-wrap img,
+  .blockchain-hero .hero-image-wrap img {
+    min-height: 520px;
+    max-height: 82dvh;
+    max-width: 680px;
     object-fit: contain;
-    object-position: bottom;
+    object-position: center;
+  }
+
+  .blockchain-hero--web3 .hero-image-wrap img {
+    min-height: auto;
+    max-width: 480px;
+    max-height: 360px;
   }
 }
 
@@ -4324,6 +4374,11 @@ footer a {
 .pages-data {
   padding-top: 70px;
 }
+
+.pages-data:has(> .blockchain-hero:first-child),
+.pages-data:has(> .careers-vision-hero:first-child) {
+  padding-top: 0;
+}
 .contact-hero {
   background-color: var(--color-black);
   background: url("https://techfyte.com/wp-content/themes/techfyte-v2/assets/images/contact/hero-bg-e.jpg") no-repeat center
@@ -5624,11 +5679,19 @@ footer a {
 .blockchain-hero {
   background: var(--primary-bg);
   overflow: hidden;
+  color: var(--text-white);
+  position: relative;
 }
-.blockchain-hero .row {
-  min-height: 650px;
-  max-height: 650px;
+
+.blockchain-hero--web3 .hero-image-wrap {
+  min-height: 460px;
 }
+
+.blockchain-hero--web3 .hero-image-wrap img {
+  max-width: 540px;
+  max-height: 400px;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -5662,9 +5725,6 @@ footer a {
 
   .blockchain-hero br {
     display: none;
-  }
-  .blockchain-hero .row {
-    max-height: inherit;
   }
 }
 
@@ -6480,10 +6540,10 @@ footer a {
 }
 
 .bv-card {
-  background: var(--primary-bg); /* Deep dark purple from figma */
-  border-radius: var(--radius-xl);
+  background: var(--primary-bg);
+  border-radius: 24px;
   overflow: hidden;
-  padding: 40px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
 }
@@ -6491,21 +6551,91 @@ footer a {
 .bv-card-title {
   color: var(--text-white);
   font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
 .bv-card-text {
   margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.web3-business-value .bv-card-text a {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.web3-business-value .bv-card-text a:hover {
+  color: #d946ef;
+}
+
+.bv-card--featured .bv-card-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  margin-bottom: 2rem;
+}
+
+.bv-card--featured .bv-card-visual img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.bv-card--compact .bv-card-visual {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 112px;
+  margin-bottom: 1.25rem;
+}
+
+.bv-card--compact .bv-card-visual img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.web3-business-value .bv-right-cards .bv-card {
+  flex-grow: 1;
 }
 
 @media (max-width: 991px) {
   .bv-card {
-    padding: 30px;
+    padding: 28px;
+  }
+
+  .bv-card--featured .bv-card-visual {
+    min-height: 220px;
+    margin-bottom: 1.5rem;
+  }
+
+  .bv-card--featured .bv-card-visual img {
+    max-height: 220px;
+  }
+
+  .bv-card--compact .bv-card-visual {
+    min-height: 96px;
+    justify-content: center;
+  }
+
+  .bv-card--compact .bv-card-visual img {
+    max-height: 100px;
   }
 }
 
 @media (max-width: 767px) {
-  .bv-card-body {
+  .bv-card {
     text-align: left;
+  }
+
+  .bv-card--compact .bv-card-visual {
+    justify-content: flex-start;
   }
 }
 

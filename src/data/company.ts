@@ -22,7 +22,7 @@ export const homeHeroSlides = [
     badge: 'BLOCKCHAIN-FIRST INNOVATION',
     title: 'Building the Trust Infrastructure of the Digital Economy',
     subtitle: COMPANY_TAGLINE,
-    image: '/assets/blockchain_banner.webp',
+    image: '/assets/hero-slide-blockchain.png',
     rowAlign: 'align-items-center' as const,
     isPrimaryHeading: true,
   },
@@ -31,7 +31,7 @@ export const homeHeroSlides = [
     title: 'Where Blockchain Provides Trust and AI Provides Intelligence',
     subtitle:
       'We engineer AI agents, analytics, and automation that operate securely, transparently, and at enterprise scale.',
-    image: '/assets/123.png',
+    image: '/assets/hero-slide-ai.png',
     rowAlign: 'align-items-end' as const,
     isPrimaryHeading: false,
   },
@@ -40,7 +40,7 @@ export const homeHeroSlides = [
     title: 'Enterprise-Grade Platforms for the On-Chain Future',
     subtitle:
       'From digital identity to DAO infrastructure, we build decentralized systems designed for long-term adoption.',
-    image: '/assets/game_banner.webp',
+    image: '/assets/hero-slide-web3.png',
     rowAlign: 'align-items-end' as const,
     isPrimaryHeading: false,
   },
@@ -49,7 +49,7 @@ export const homeHeroSlides = [
     title: 'Unlocking Global Liquidity for Real-World Assets',
     subtitle:
       'We structure RWAs, security tokens, and fractional ownership platforms that connect illiquid assets to digital markets.',
-    image: '/assets/rwa_banner.webp',
+    image: '/assets/hero-slide-rwa.png',
     rowAlign: 'align-items-center' as const,
     isPrimaryHeading: false,
   },

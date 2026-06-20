@@ -18,8 +18,8 @@ export default function HeroSection() {
               >
                 <div className="container-fluid">
                   <div className="hero-content">
-                    <div className={`row ${slide.rowAlign}`}>
-                      <div className="col-lg-7">
+                    <div className="row align-items-center">
+                      <div className="col-lg-6">
                         <div className="carousel-content">
                           <div className="hero-text">
                             <span className="badge badge-primary mb-3">{slide.badge}</span>
@@ -42,11 +42,11 @@ export default function HeroSection() {
                         </div>
                       </div>
 
-                      <div className="col-lg-5 d-none d-lg-block">
-                        <div className="carousel-image">
+                      <div className="col-lg-6 d-none d-lg-block text-center">
+                        <div className="hero-image-wrap">
                           <img
                             src={slide.image}
-                            className="img-fluid ms-lg-auto"
+                            className="img-fluid mx-auto"
                             alt={slide.title}
                           />
                         </div>

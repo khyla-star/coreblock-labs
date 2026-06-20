@@ -5,22 +5,22 @@ export default function ContactContactHeroSection() {
   useContactForm({ referer: '/contact-us/' });
 
   return (
-    <section className="contact-hero" id="contact-hero">
+      <section className="contact-hero" id="contact-hero">
       <div className="container-fluid">
-        <div className="row g-4">
-          <div className="col-lg-5">
-            <div className="project-panel">
-              <div className="mb-4">
-                <h2>Your Project Starts Here</h2>
+                  <div className="row g-4">
+                      <div className="col-lg-5">
+                          <div className="project-panel">
+                              <div className="mb-4">
+                                  <h2>Your Project Starts Here</h2>
                 <p className="subtitle">{COMPANY_TAGLINE}</p>
-              </div>
+                              </div>
               <p className="info-text">
                 Fill in the form and our professionals will get in touch to:
               </p>
 
-              <ul className="check-list">
-                <li>
-                  <i className="bi bi-check-circle-fill">
+                              <ul className="check-list">
+                                                              <li>
+                                          <i className="bi bi-check-circle-fill">
                     <img
                       src="/assets/icon-tick.svg"
                       width={20}
@@ -30,8 +30,8 @@ export default function ContactContactHeroSection() {
                   </i>
                   Confirm your requirements
                 </li>
-                <li>
-                  <i className="bi bi-check-circle-fill">
+                                                              <li>
+                                          <i className="bi bi-check-circle-fill">
                     <img
                       src="/assets/icon-tick.svg"
                       width={20}
@@ -41,8 +41,8 @@ export default function ContactContactHeroSection() {
                   </i>
                   Schedule a free consultation
                 </li>
-                <li>
-                  <i className="bi bi-check-circle-fill">
+                                                              <li>
+                                          <i className="bi bi-check-circle-fill">
                     <img
                       src="/assets/icon-tick.svg"
                       width={20}
@@ -52,12 +52,12 @@ export default function ContactContactHeroSection() {
                   </i>
                   Share customized recommendations for your project
                 </li>
-              </ul>
+                                                      </ul>
 
-              <div className="contact-info-inquiry mb-4">
-                <p className="section-label">Project Inquries</p>
+                                                      <div className="contact-info-inquiry mb-4">
+                                  <p className="section-label">Project Inquries</p>
                 <a href="mailto:hello@coreblocklabs.com" className="contact-link">
-                  <i className="bi bi-envelope-fill">
+                                          <i className="bi bi-envelope-fill">
                     <img
                       src="/assets/icon-mail.svg"
                       alt="icon-mail"
@@ -67,10 +67,10 @@ export default function ContactContactHeroSection() {
                   </i>
                   hello@coreblocklabs.com
                 </a>
-              </div>
+                              </div>
 
-              <p className="section-label">Follow Us</p>
-              <div className="social-icons">
+                                                          <p className="section-label">Follow Us</p>
+                                                      <div className="social-icons">
                 <a
                   href="https://t.me/mgulati"
                   target="_blank"
@@ -97,18 +97,18 @@ export default function ContactContactHeroSection() {
                   aria-label="Discord"
                 >
                   <img src="/assets/discord.svg" width={19} height={19} alt="Discord" />
-                </a>
-              </div>
-            </div>
-          </div>
+                                          </a>
+                                                          </div>
+                                                  </div>
+                      </div>
 
-          <div className="col-lg-7">
-            <div className="form-panel">
-              <div className="mb-4">
+                      <div className="col-lg-7">
+                          <div className="form-panel">
+                              <div className="mb-4">
                 <h3>Let&apos;s build something innovative together.</h3>
                 <p className="form-subtitle">Start your journey with CoreBlock Labs today.</p>
                 <div className="alert d-none" id="contact_form_status_top" role="alert" />
-              </div>
+                              </div>
 
               <form
                 id="contact-form"
@@ -117,12 +117,12 @@ export default function ContactContactHeroSection() {
                 action="/contact"
                 noValidate
               >
-                <input type="hidden" name="action" value="handle_contact_form_ajax" />
+          <input type="hidden" name="action" value="handle_contact_form_ajax" />
                 <input type="hidden" id="contact_nonce" name="contact_nonce" value="d57a0ccec3" />
                 <input type="hidden" name="_wp_http_referer" value="/contact-us/" />
 
-                <div className="row g-3">
-                  <div className="col-md-6">
+          <div className="row g-3">
+              <div className="col-md-6">
                     <label htmlFor="contactPageNameInput">
                       Your Name<span className="text-danger">*</span>
                     </label>
@@ -134,9 +134,9 @@ export default function ContactContactHeroSection() {
                       placeholder="John Trangely"
                     />
                     <div className="field-error" id="name_error" />
-                  </div>
+              </div>
 
-                  <div className="col-md-6">
+              <div className="col-md-6">
                     <label htmlFor="contactPageEmailInput">
                       Your Email<span className="text-danger">*</span>
                     </label>
@@ -148,13 +148,13 @@ export default function ContactContactHeroSection() {
                       placeholder="hello@nurency.com"
                     />
                     <div className="field-error" id="email_error" />
-                  </div>
+              </div>
 
-                  <div className="col-md-6">
+              <div className="col-md-6">
                     <label htmlFor="contactPagePhone">
                       Mobile Number<span className="text-danger">*</span>
                     </label>
-                    <div className="phone-input-group">
+                  <div className="phone-input-group">
                       <input
                         type="tel"
                         id="contactPagePhone"
@@ -165,9 +165,9 @@ export default function ContactContactHeroSection() {
                       />
                     </div>
                     <div className="field-error" id="phone_error" />
-                  </div>
+              </div>
 
-                  <div className="col-md-6">
+              <div className="col-md-6">
                     <label htmlFor="contactPageQuerySelect">
                       Query For<span className="text-danger">*</span>
                     </label>
@@ -183,11 +183,11 @@ export default function ContactContactHeroSection() {
                       <option value="Sales Query">Project / Sales Enquiry</option>
                       <option value="Support Query">Support Enquiry</option>
                       <option value="Partnership">Partnership</option>
-                    </select>
+                  </select>
                     <div className="field-error" id="query_error" />
-                  </div>
+              </div>
 
-                  <div className="col-12">
+              <div className="col-12">
                     <label htmlFor="contactPageMessageInput">
                       Message<span className="text-danger">*</span>
                     </label>
@@ -198,30 +198,30 @@ export default function ContactContactHeroSection() {
                       placeholder="Write here your message..."
                     />
                     <div className="field-error" id="message_error" />
-                  </div>
-                </div>
+              </div>
+          </div>
 
-                <p className="nda-text">
+          <p className="nda-text">
                   <img src="/assets/trust.png" alt="" aria-hidden="true" />
                   <span className="fw-normal">
                     Your Idea Is Fully Protected By Our{' '}
                     <span>Non Disclosure Agreement (NDA).</span>
                   </span>
-                </p>
+          </p>
 
-                <div className="row">
+          <div className="row">
                   <div className="col-12 d-flex justify-content-end flex-wrap align-items-center w-100 gap-2">
-                    <button type="submit" className="btn btn-primary" id="contact_submit_btn">
+                  <button type="submit" className="btn btn-primary" id="contact_submit_btn">
                       <span className="btn-text">Send Message</span>
                       <span className="btn-spinner" aria-hidden="true" />
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
+                  </button>
+              </div>
           </div>
-        </div>
-      </div>
-    </section>
+      </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
   );
 }

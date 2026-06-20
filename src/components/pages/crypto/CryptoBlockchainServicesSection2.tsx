@@ -67,7 +67,7 @@ export default function CryptoBlockchainServicesSection2() {
                         <div className="col-lg-4 col-md-6">
                             <div className="service-card card-red">
                                 <div className="service-icon">
-                                    <img src="/assets/Support-2.svg" alt="Support" className="img-fluid" />
+                                    <img src="/assets/support-2.svg" alt="Post launch operations support" className="img-fluid" />
                                 </div>
                                 <h4 className="service-card-title">Post Launch Operations Support</h4>
                                 <div className="service-card-desc">

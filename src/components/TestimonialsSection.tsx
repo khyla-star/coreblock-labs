@@ -8,29 +8,29 @@ import './TestimonialsSection.css';
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <div className="testimonial-slide">
-      <div className="testimonial-card">
-        <div className="quote-header">
-          <div className="quote-icon">
+                                  <div className="testimonial-card">
+                                      <div className="quote-header">
+                                          <div className="quote-icon">
             <img src="/assets/quote.svg" alt="" aria-hidden="true" />
-          </div>
-        </div>
+                                          </div>
+                                      </div>
 
-        <div className="testimonial-content">
+                                      <div className="testimonial-content">
           <div className="testimonial-text">
             <p>{testimonial.quote}</p>
-          </div>
-        </div>
+      </div>
+                                      </div>
 
-        <div className="testimonial-footer">
-          <div className="client-info">
-            <div className="client-details">
+                                      <div className="testimonial-footer">
+                                          <div className="client-info">
+                                              <div className="client-details">
               <h4 className="client-name">{testimonial.name}</h4>
               <span className="client-role">{testimonial.role}</span>
-            </div>
-          </div>
-        </div>
+                                          </div>
+                                          </div>
+                                      </div>
       </div>
-    </div>
+                                      </div>
   );
 }
 
@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
             lines={['Hear From Our Clients Vouch', 'For Our Credibility']}
             ariaLabel="Hear From Our Clients Vouch For Our Credibility"
           />
-        </div>
+                                                                                                  </div>
 
         <div className="testimonials-slider-wrapper">
           <div className="testimonials-carousel">
@@ -66,8 +66,8 @@ export default function TestimonialsSection() {
                     testimonial={testimonial}
                   />
                 ))}
-              </div>
-            </div>
+                                          </div>
+                                      </div>
 
             <CarouselDots
               className="testimonials-carousel-dots"
@@ -76,9 +76,9 @@ export default function TestimonialsSection() {
               onSelect={setActiveIndex}
               idPrefix="testimonial-slide"
             />
+                                          </div>
+              </div>
           </div>
-        </div>
-      </div>
-    </section>
+      </section>
   );
 }
