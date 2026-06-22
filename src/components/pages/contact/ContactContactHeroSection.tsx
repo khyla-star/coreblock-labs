@@ -163,7 +163,7 @@ export default function ContactContactHeroSection() {
                         placeholder="Enter mobile number"
                         autoComplete="tel"
                       />
-                    </div>
+                  </div>
                     <div className="field-error" id="phone_error" />
               </div>
 
