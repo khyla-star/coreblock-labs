@@ -49,7 +49,7 @@ export const industryBentoSlides: IndustryBentoSlide[] = [
       {
         slot: 'bento-right-bottom',
         title: 'Gaming & Entertainment',
-        image: '/assets/gaming-entertainment.png',
+        image: '/assets/gaming-entertainment.jpg',
         imageAlt: 'European woman wearing gaming headphones at a bright home gaming setup',
         tags: [
           'P2E ecosystems',

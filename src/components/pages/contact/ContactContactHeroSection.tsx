@@ -95,7 +95,7 @@ export default function ContactContactHeroSection() {
                   aria-label="Email"
                 >
                   <img src="/assets/icon-email.svg" width={19} height={19} alt="Email" />
-                </a>
+                                          </a>
                                                           </div>
                                                   </div>
                       </div>

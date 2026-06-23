@@ -14,7 +14,7 @@ export const profileTestimonials: ProfileTestimonial[] = [
     role: 'HR RECRUITMENT',
     quote:
       'CoreBlock Labs engineered an AI-powered hiring platform that slashed time-to-hire and elevated talent quality across our teams. They build systems that scale people as powerfully as they scale technology.',
-    image: '/assets/testimonials/sara-moioli.webp',
+    image: '/assets/testimonials/sara-moioli.png',
     imageAlt: 'Sara Moioli',
   },
   {
