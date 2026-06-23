@@ -386,16 +386,28 @@
   padding: 2.5rem 0 3rem;
 }
 
-.careers-back-link--light {
+.careers-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-bg, #10011a);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.careers-back-link:hover {
+  text-decoration: underline;
+}
+
+.careers-back-link.careers-back-link--light,
+.careers-job-hero .careers-back-link {
   color: rgba(255, 255, 255, 0.88);
 }
 
-.careers-back-link--light:hover {
+.careers-back-link.careers-back-link--light:hover,
+.careers-job-hero .careers-back-link:hover {
   color: #fff;
-}
-
-.careers-job-hero .careers-application-notice {
-  max-width: 720px;
 }
 
 .careers-job-hero-content {
@@ -651,21 +663,8 @@
   font-weight: 600;
 }
 
-.careers-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 1.5rem;
-  color: var(--primary-bg, #10011a);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.careers-back-link:hover {
-  text-decoration: underline;
-}
-
-.careers-application-notice {
+.careers-job-hero .careers-application-notice {
+  max-width: 720px;
   margin-bottom: 1.5rem;
   padding: 1rem 1.25rem;
   border-radius: 12px;

@@ -1,5 +1,5 @@
 import { useContactForm } from '../../../hooks/useContactForm';
-import { COMPANY_TAGLINE } from '../../../data/company';
+import { COMPANY_EMAIL, COMPANY_TAGLINE } from '../../../data/company';
 
 export default function ContactContactHeroSection() {
   useContactForm({ referer: '/contact-us/' });
@@ -60,9 +60,9 @@ export default function ContactContactHeroSection() {
                                           <i className="bi bi-envelope-fill">
                     <img
                       src="/assets/icon-mail.svg"
-                      alt="icon-mail"
-                      width={28}
-                      height={28}
+                      alt="Email"
+                      width={20}
+                      height={20}
                     />
                   </i>
                   hello@coreblocklabs.com
@@ -72,7 +72,7 @@ export default function ContactContactHeroSection() {
                                                           <p className="section-label">Follow Us</p>
                                                       <div className="social-icons">
                 <a
-                  href="https://t.me/mgulati"
+                  href="https://t.me/coreblocklabs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-telegram"
@@ -90,14 +90,12 @@ export default function ContactContactHeroSection() {
                   <img src="/assets/linkedin.svg" width={19} height={19} alt="LinkedIn" />
                 </a>
                 <a
-                  href="https://discord.gg/coreblocklabs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-discord"
-                  aria-label="Discord"
+                  href={`mailto:${COMPANY_EMAIL}`}
+                  className="social-email"
+                  aria-label="Email"
                 >
-                  <img src="/assets/discord.svg" width={19} height={19} alt="Discord" />
-                                          </a>
+                  <img src="/assets/icon-email.svg" width={19} height={19} alt="Email" />
+                </a>
                                                           </div>
                                                   </div>
                       </div>

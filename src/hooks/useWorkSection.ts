@@ -1,4 +1,26 @@
+import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
+
+function primeWorkStackLayout(section: HTMLElement) {
+  if (window.innerWidth < 992) {
+    return;
+  }
+
+  const scrollSection = section.querySelector<HTMLElement>('.scroll-section');
+  const stackRoot = scrollSection ?? section;
+  const items = stackRoot.querySelectorAll<HTMLElement>('.card_stack_item');
+
+  items.forEach((item, index) => {
+    gsap.set(item, {
+      opacity: 1,
+      scale: 1,
+      zIndex: index + 1,
+      yPercent: index === 0 ? 0 : 125,
+      borderRadius: '0px',
+      filter: 'blur(0px)',
+    });
+  });
+}
 
 export function useWorkSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -8,6 +30,8 @@ export function useWorkSection() {
     if (!section) {
       return undefined;
     }
+
+    primeWorkStackLayout(section);
 
     let cleanup: (() => void) | undefined;
     let cancelled = false;
@@ -26,7 +50,7 @@ export function useWorkSection() {
 
     attach();
 
-    const customScript = document.getElementById('techfyte-custom');
+    const customScript = document.getElementById('coreblock-custom');
     const onScriptLoad = () => attach();
     customScript?.addEventListener('load', onScriptLoad);
 

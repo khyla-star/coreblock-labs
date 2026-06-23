@@ -8,12 +8,9 @@ export default function Web3BlockchainHeroSection() {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="carousel-content">
-                <div className="hero-badge mb-3">
-                  <span className="badge-dot" />
-                  WEB3 &amp; DECENTRALIZED SYSTEMS
-                </div>
+                <span className="hero-eyebrow">WEB3 &amp; DECENTRALIZED SYSTEMS</span>
 
-                <h1 className="text-white mb-4">
+                <h1 className="hero-title text-white mb-4">
                   Decentralized Platforms for the Next Evolution of the Internet
                 </h1>
 

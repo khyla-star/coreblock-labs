@@ -82,7 +82,7 @@ export const openRoles: CareerJob[] = [
     id: 'blockchain-developer',
     title: 'Blockchain Developer',
     level: 'Experience: 2–5 years',
-    location: 'Remote / Mumbai',
+    location: 'Remote / Anywhere',
     type: 'Full Time',
     profile: [
       'Experience with smart contracts and Web3 application development',
@@ -104,14 +104,14 @@ export const openRoles: CareerJob[] = [
     id: 'web3-frontend-developer',
     title: 'Web3 Frontend Developer',
     level: 'Experience: 2–5 years',
-    location: 'Remote / Mumbai',
+    location: 'Remote / Anywhere',
     type: 'Full Time',
     profile: [
       'Strong frontend development experience with React and TypeScript',
       'Familiarity with Web3 wallets, dApps, and blockchain UX patterns',
     ],
     skills: [
-      'React, TypeScript, HTML5, CSS, and modern component architecture',
+      'React, Next.js, TypeScript, and modern component architecture',
       'ethers.js/viem, wallet connectors, and transaction flow handling',
       'Responsive design, performance optimization, and accessibility basics',
     ],
@@ -125,7 +125,7 @@ export const openRoles: CareerJob[] = [
     id: 'blockchain-fullstack-developer',
     title: 'Blockchain Full Stack Developer',
     level: 'Experience: 3–6 years',
-    location: 'Remote / Mumbai',
+    location: 'Remote / Anywhere',
     type: 'Full Time',
     profile: [
       'End-to-end web development experience across frontend and backend',
@@ -146,7 +146,7 @@ export const openRoles: CareerJob[] = [
     id: 'product-manager',
     title: 'Product Manager',
     level: 'Experience: 3–6 years',
-    location: 'Remote / Mumbai',
+    location: 'Remote / Anywhere',
     type: 'Full Time',
     profile: [
       'Experience shipping B2B or technical products in software or Web3',
@@ -168,7 +168,7 @@ export const openRoles: CareerJob[] = [
     id: 'product-designer',
     title: 'Product Designer',
     level: 'Experience: 2–5 years',
-    location: 'Remote / Mumbai',
+    location: 'Remote / Anywhere',
     type: 'Full Time',
     profile: [
       'Portfolio demonstrating UX/UI for web, mobile, or complex technical products',

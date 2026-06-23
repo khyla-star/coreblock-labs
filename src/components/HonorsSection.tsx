@@ -12,15 +12,6 @@ export default function HonorsSection() {
                         </h2>
 
                         <div className="custom-grid">
-
-
-                            <div className="award-card">
-                                <div className="award-logo">
-                                    <img width={189} height={62} src="/assets/upwork.webp" className="award-logo wp-post-image" alt="Upwork" decoding="async" />                    
-                                </div>
-                            </div>
-
-
                             <div className="award-card">
                                 <div className="award-logo">
                                     <img width={1226} height={1050} src="/assets/clutch.webp" className="award-logo wp-post-image" alt="Clutch" decoding="async" fetchPriority="high" />                    

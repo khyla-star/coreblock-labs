@@ -8,12 +8,9 @@ export default function AiBlockchainHeroSection() {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="carousel-content">
-                <div className="hero-badge mb-3">
-                  <span className="badge-dot" />
-                  AI-POWERED BLOCKCHAIN
-                </div>
+                <span className="hero-eyebrow">AI-POWERED BLOCKCHAIN</span>
 
-                <h1 className="text-white mb-4">
+                <h1 className="hero-title text-white mb-4">
                   Intelligent Automation on Trusted Digital Infrastructure
                 </h1>
 

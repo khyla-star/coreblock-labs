@@ -9,7 +9,7 @@ export default function MetricsSection() {
                         <div className="metric-item">
 
                             <h3 className="metric-value">
-                                2000+
+                                500+
                             </h3>
 
                             <p className="metric-desc">Platforms Delivered Successfully</p>
@@ -20,7 +20,7 @@ export default function MetricsSection() {
                         <div className="metric-item">
 
                             <h3 className="metric-value">
-                                12+
+                                6+
                             </h3>
 
                             <p className="metric-desc">Years of Blockchain &amp; AI Innovation</p>
@@ -31,7 +31,7 @@ export default function MetricsSection() {
                         <div className="metric-item">
 
                             <h3 className="metric-value">
-                                180+
+                                130+
                             </h3>
 
                             <p className="metric-desc">Experts in Blockchain, AI &amp; Web3</p>

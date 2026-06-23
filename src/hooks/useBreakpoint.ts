@@ -28,3 +28,12 @@ export function useServicesVisibleCount() {
   if (width < 1200) return 3;
   return 4;
 }
+
+export function useProfileTestimonialsVisibleCount() {
+  const width = useBreakpoint();
+
+  if (width < 576) return 1;
+  if (width < 768) return 2;
+  if (width < 992) return 3;
+  return 4;
+}

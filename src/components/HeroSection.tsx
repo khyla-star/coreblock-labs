@@ -35,7 +35,7 @@ export default function HeroSection() {
                               <div className="stat-label">Platforms Delivered</div>
                             </div>
                             <div className="stat-item">
-                              <div className="stat-number">12+</div>
+                              <div className="stat-number">6+</div>
                               <div className="stat-label">Years of Innovation</div>
                             </div>
                           </div>

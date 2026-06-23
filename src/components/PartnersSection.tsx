@@ -10,13 +10,6 @@ export default function PartnersSection() {
                       
                               <div className="logo-item">
                                   <span className="logo-text">
-                                      <img src="/assets/samsung-brand.svg" alt="Samsung" loading="lazy" className="" />
-                                  </span>
-                              </div>
-
-                          
-                              <div className="logo-item">
-                                  <span className="logo-text">
                                       <img src="/assets/swiggy-brand.svg" alt="Swiggy" loading="lazy" className="" />
                                   </span>
                               </div>
@@ -25,13 +18,6 @@ export default function PartnersSection() {
                               <div className="logo-item">
                                   <span className="logo-text">
                                       <img src="/assets/hughes-brand.svg" alt="Hughes" loading="lazy" className="" />
-                                  </span>
-                              </div>
-
-                          
-                              <div className="logo-item">
-                                  <span className="logo-text">
-                                      <img src="/assets/microsoft-brand.svg" alt="Microsoft" loading="lazy" className="" />
                                   </span>
                               </div>
 
@@ -67,13 +53,6 @@ export default function PartnersSection() {
                       
                               <div className="logo-item">
                                   <span className="logo-text">
-                                      <img src="/assets/samsung-brand.svg" alt="Samsung" loading="lazy" className="" />
-                                  </span>
-                              </div>
-
-                          
-                              <div className="logo-item">
-                                  <span className="logo-text">
                                       <img src="/assets/swiggy-brand.svg" alt="Swiggy" loading="lazy" className="" />
                                   </span>
                               </div>
@@ -82,13 +61,6 @@ export default function PartnersSection() {
                               <div className="logo-item">
                                   <span className="logo-text">
                                       <img src="/assets/hughes-brand.svg" alt="Hughes" loading="lazy" className="" />
-                                  </span>
-                              </div>
-
-                          
-                              <div className="logo-item">
-                                  <span className="logo-text">
-                                      <img src="/assets/microsoft-brand.svg" alt="Microsoft" loading="lazy" className="" />
                                   </span>
                               </div>
 

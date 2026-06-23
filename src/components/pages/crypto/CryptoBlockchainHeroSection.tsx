@@ -8,12 +8,9 @@ export default function CryptoBlockchainHeroSection() {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="carousel-content">
-                <div className="hero-badge mb-3">
-                  <span className="badge-dot" />
-                  DIGITAL ASSETS &amp; TOKENIZATION
-                </div>
+                <span className="hero-eyebrow">DIGITAL ASSETS &amp; TOKENIZATION</span>
 
-                <h1 className="text-white mb-4">
+                <h1 className="hero-title text-white mb-4">
                   Tokenization Infrastructure for Real-World Assets and Digital Securities
                 </h1>
 

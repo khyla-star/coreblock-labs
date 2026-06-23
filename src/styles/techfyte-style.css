@@ -1903,6 +1903,19 @@ section .slick-dots li.slick-active button {
     border-radius: var(--radius-lg) !important;
   }
 
+  .scroll-section:not([data-work-stack-init='1']) .card_stack_item {
+    opacity: 0;
+    transform: translate3d(0, 125%, 0);
+    pointer-events: none;
+  }
+
+  .scroll-section:not([data-work-stack-init='1']) .card_stack_item:first-child {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+    z-index: 1;
+  }
+
   .item_number {
     font-size: 1.5rem;
     height: 3rem;
@@ -5692,6 +5705,24 @@ footer a {
   max-height: 400px;
 }
 
+.blockchain-hero .carousel-content {
+  text-align: left;
+}
+
+.blockchain-hero .hero-eyebrow {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -5715,7 +5746,7 @@ footer a {
 
 @media (max-width: 991.98px) {
   .blockchain-hero .hero-content {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
   }
 

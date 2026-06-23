@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPANY_LINKEDIN, COMPANY_LOGO, COMPANY_NAME } from '../data/company';
+import { COMPANY_EMAIL, COMPANY_LINKEDIN, COMPANY_LOGO, COMPANY_NAME } from '../data/company';
 import './Footer.css';
 
 const quickLinks = [
@@ -44,7 +44,7 @@ export default function Footer() {
 
             <div className="footer-social-grid">
               <a
-                href="https://t.me/mgulati"
+                href="https://t.me/coreblocklabs"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon social-telegram"
@@ -62,13 +62,11 @@ export default function Footer() {
                 <img src="/assets/linkedin.svg" width={19} height={19} alt="LinkedIn" />
               </a>
               <a
-                href="https://discord.gg/coreblocklabs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon social-discord"
-                aria-label="Discord"
+                href={`mailto:${COMPANY_EMAIL}`}
+                className="social-icon social-email"
+                aria-label="Email"
               >
-                <img src="/assets/discord.svg" width={19} height={19} alt="Discord" />
+                <img src="/assets/icon-email.svg" width={19} height={19} alt="Email" />
               </a>
             </div>
           </section>

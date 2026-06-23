@@ -44,23 +44,6 @@ export default function Web3BlockchainServicesSection() {
                                                         </div>
                                                 </div>
                                                 <div className="col-lg-4 col-md-6">
-                                                        <div className="service-card card-green">
-                                                                <div className="service-icon">
-                                                                        <img src="/assets/smart-contract-development-1.svg" alt="smart-contract-development" className="img-fluid" />
-                                                                </div>
-                                                                <h4 className="service-card-title">Smart Contract Development</h4>
-                                                                <div className="service-card-desc">
-                                                                        <p>Smart contracts are at the core of every Web3 platform. We create smart contracts to allow businesses to automate their processes, transactions, and decisions without a human touch.</p>
-                                                                </div>
-                                                                <ul className="bullet-list mt-4">
-                                                                        <li>Business logic automation</li>
-                                                                        <li>Upgradeable contract frameworks</li>
-                                                                        <li>Multi-signature security models</li>
-                                                                        <li>Gas cost optimization</li>
-                                                                </ul>
-                                                        </div>
-                                                </div>
-                                                <div className="col-lg-4 col-md-6">
                                                         <div className="service-card card-purple">
                                                                 <div className="service-icon">
                                                                         <img src="/assets/defi-development.svg" alt="defi-development" className="img-fluid" />
@@ -74,40 +57,6 @@ export default function Web3BlockchainServicesSection() {
                                                                         <li>Lending and borrowing protocols</li>
                                                                         <li>Liquidity pools and AMMs</li>
                                                                         <li>Stablecoin and payment solutions</li>
-                                                                </ul>
-                                                        </div>
-                                                </div>
-                                                <div className="col-lg-4 col-md-6">
-                                                        <div className="service-card card-blue">
-                                                                <div className="service-icon">
-                                                                        <img src="/assets/nft-development.svg" alt="nft-development" className="img-fluid" />
-                                                                </div>
-                                                                <h4 className="service-card-title">NFT Development</h4>
-                                                                <div className="service-card-desc">
-                                                                        <p>By deploying NFTs, organizations can create a verifiable ownership structure and programmable value for their digital/physical assets.</p>
-                                                                </div>
-                                                                <ul className="bullet-list mt-4">
-                                                                        <li>NFT minting platforms</li>
-                                                                        <li>Marketplaces and auctions</li>
-                                                                        <li>Utility-based NFTs</li>
-                                                                        <li>Gaming and metaverse assets</li>
-                                                                </ul>
-                                                        </div>
-                                                </div>
-                                                <div className="col-lg-4 col-md-6">
-                                                        <div className="service-card card-pink">
-                                                                <div className="service-icon">
-                                                                        <img src="/assets/dao-development.svg" alt="dao-development" className="img-fluid" />
-                                                                </div>
-                                                                <h4 className="service-card-title">DAO Development</h4>
-                                                                <div className="service-card-desc">
-                                                                        <p>We offer DAO development services to help both businesses and communities create a decentralized governance framework for their organizations.</p>
-                                                                </div>
-                                                                <ul className="bullet-list mt-4">
-                                                                        <li>Token-based voting systems</li>
-                                                                        <li>Treasury and fund management</li>
-                                                                        <li>Proposal frameworks</li>
-                                                                        <li>Automated governance execution</li>
                                                                 </ul>
                                                         </div>
                                                 </div>
@@ -159,23 +108,6 @@ export default function Web3BlockchainServicesSection() {
                                                                         <li>Layer 2 integrations</li>
                                                                         <li>Blockchain-agnostic architecture</li>
                                                                         <li>Asset and data interoperability</li>
-                                                                </ul>
-                                                        </div>
-                                                </div>
-                                                <div className="col-lg-4 col-md-6">
-                                                        <div className="service-card card-pink">
-                                                                <div className="service-icon">
-                                                                        <img src="/assets/custom-web3-development.svg" alt="custom-web3-development" className="img-fluid" />
-                                                                </div>
-                                                                <h4 className="service-card-title">Custom Web3 Development</h4>
-                                                                <div className="service-card-desc">
-                                                                        <p className="service-card-desc">Our custom Web3 development services provide you with an application that is specifically designed for your business workflow, market needs and long-term goals.</p>
-                                                                </div>
-                                                                <ul className="bullet-list mt-4">
-                                                                        <li>Custom dApp Architecture</li>
-                                                                        <li>Smart Contract Development</li>
-                                                                        <li>Blockchain Integration</li>
-                                                                        <li>Token &amp; Protocol Design</li>
                                                                 </ul>
                                                         </div>
                                                 </div>
