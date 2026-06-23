@@ -31,7 +31,7 @@ export default function HeroSection() {
 
                           <div className="stats-container">
                             <div className="stat-item">
-                              <div className="stat-number">2k+</div>
+                              <div className="stat-number">500+</div>
                               <div className="stat-label">Platforms Delivered</div>
                             </div>
                             <div className="stat-item">
