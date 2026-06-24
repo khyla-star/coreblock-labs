@@ -28,6 +28,7 @@ export type CareerAward = {
 };
 
 export const CAREERS_APPLY_EMAIL = 'hello@coreblocklabs.com';
+export const CAREERS_APPLICATION_SUBMIT_DELAY_MS = 6000;
 
 export const CAREERS_RESUME_ACCEPT = '.pdf,.doc,.docx';
 export const CAREERS_RESUME_MAX_BYTES = 5 * 1024 * 1024;

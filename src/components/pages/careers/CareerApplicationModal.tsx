@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import type { CareerJob } from '../../../data/careers';
 import {
+  CAREERS_APPLICATION_SUBMIT_DELAY_MS,
   CAREERS_RESUME_ACCEPT,
   CAREERS_RESUME_MAX_BYTES,
   isAcceptedResumeFile,
@@ -47,27 +48,45 @@ export default function CareerApplicationModal({
   const [form, setForm] = useState<FormState>(emptyForm);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const resumeInputRef = useRef<HTMLInputElement>(null);
+  const submitDelayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isSubmittingRef = useRef(false);
+
+  isSubmittingRef.current = isSubmitting;
+
+  const clearSubmitDelay = () => {
+    if (submitDelayRef.current) {
+      window.clearTimeout(submitDelayRef.current);
+      submitDelayRef.current = null;
+    }
+  };
 
   const resetForm = () => {
     setForm(emptyForm);
     setResumeFile(null);
     setErrors({});
+    setIsSubmitting(false);
+    clearSubmitDelay();
     if (resumeInputRef.current) {
       resumeInputRef.current.value = '';
     }
   };
 
   const handleClose = () => {
+    if (isSubmitting) return;
     resetForm();
     onClose();
   };
 
   useEffect(() => {
-    if (!isOpen) return undefined;
+    if (!isOpen) {
+      clearSubmitDelay();
+      return undefined;
+    }
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && !isSubmittingRef.current) {
         handleClose();
       }
     };
@@ -130,33 +149,66 @@ export default function CareerApplicationModal({
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    if (!validate() || !resumeFile) return;
+    if (isSubmitting || !validate() || !resumeFile) return;
 
-    onSuccess(
-      `Your application for ${job.title} has been received. We will review it and get back to you soon.`,
-    );
-    handleClose();
+    setIsSubmitting(true);
+
+    submitDelayRef.current = window.setTimeout(() => {
+      submitDelayRef.current = null;
+      onSuccess(
+        `Your application for ${job.title} has been received. We will review it and get back to you soon.`,
+      );
+      setIsSubmitting(false);
+      resetForm();
+      onClose();
+    }, CAREERS_APPLICATION_SUBMIT_DELAY_MS);
   };
 
   return (
-    <div className="careers-modal-backdrop" onClick={handleClose} role="presentation">
+    <div
+      className="careers-modal-backdrop"
+      onClick={isSubmitting ? undefined : handleClose}
+      role="presentation"
+    >
       <div
-        className="careers-modal"
+        className={`careers-modal${isSubmitting ? ' is-submitting' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="careers-application-title"
+        aria-busy={isSubmitting}
         onClick={(event) => event.stopPropagation()}
       >
         <div className="careers-modal-header">
           <h2 id="careers-application-title" className="careers-modal-title">
             Apply for {job.title}
           </h2>
-          <button type="button" className="careers-modal-close" onClick={handleClose} aria-label="Close">
+          <button
+            type="button"
+            className="careers-modal-close"
+            onClick={handleClose}
+            aria-label="Close"
+            disabled={isSubmitting}
+          >
             ×
           </button>
         </div>
 
-        <form className="careers-modal-form" onSubmit={handleSubmit} noValidate>
+        {isSubmitting ? (
+          <div className="careers-modal-status" role="status" aria-live="polite">
+            <span className="careers-modal-status-spinner" aria-hidden="true" />
+            <p className="careers-modal-status-title">Submitting your application</p>
+            <p className="careers-modal-status-text">
+              Please wait while we send your details to our hiring team.
+            </p>
+          </div>
+        ) : null}
+
+        <form
+          className="careers-modal-form"
+          onSubmit={handleSubmit}
+          noValidate
+          hidden={isSubmitting}
+        >
           <div className="row g-3">
             <div className="col-md-6">
               <label htmlFor="careerApplyName">Full Name *</label>
@@ -241,7 +293,7 @@ export default function CareerApplicationModal({
             <button type="button" className="btn btn-outline-secondary" onClick={handleClose}>
               Cancel
             </button>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
               Submit Application
             </button>
           </div>
