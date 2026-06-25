@@ -32,16 +32,21 @@ function JobSection({
   );
 }
 
+type ApplicationNotice = {
+  type: 'success' | 'error';
+  message: string;
+};
+
 export default function CareersJobPageContent() {
   const { jobId } = useParams<{ jobId: string }>();
   const job = jobId ? getJobById(jobId) : undefined;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [notice, setNotice] = useState('');
+  const [notice, setNotice] = useState<ApplicationNotice | null>(null);
 
   useEffect(() => {
     if (!notice) return undefined;
 
-    const timer = window.setTimeout(() => setNotice(''), 6000);
+    const timer = window.setTimeout(() => setNotice(null), 6000);
     return () => window.clearTimeout(timer);
   }, [notice]);
 
@@ -55,8 +60,11 @@ export default function CareersJobPageContent() {
   return (
     <div className="pages-data careers-page careers-job-page">
       {notice ? (
-        <div className="careers-application-toast" role="alert">
-          {notice}
+        <div
+          className={`careers-application-toast careers-application-toast--${notice.type}`}
+          role="alert"
+        >
+          {notice.message}
         </div>
       ) : null}
 
@@ -167,7 +175,8 @@ export default function CareersJobPageContent() {
         job={job}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onSuccess={setNotice}
+        onSuccess={(message) => setNotice({ type: 'success', message })}
+        onError={(message) => setNotice({ type: 'error', message })}
       />
     </div>
   );

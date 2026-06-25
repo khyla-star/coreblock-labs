@@ -9,12 +9,14 @@ import {
   isValidCareerPhoneNumber,
 } from '../../../data/careers';
 import CareerPhoneInput, { DEFAULT_PHONE_COUNTRY_CODE } from './CareerPhoneInput';
+import { sendCareerApplicationEmail } from '../../../lib/sendCareerApplicationEmail';
 
 type CareerApplicationModalProps = {
   job: CareerJob;
   isOpen: boolean;
   onClose: () => void;
   onSuccess: (message: string) => void;
+  onError: (message: string) => void;
 };
 
 type FormState = {
@@ -44,16 +46,20 @@ export default function CareerApplicationModal({
   isOpen,
   onClose,
   onSuccess,
+  onError,
 }: CareerApplicationModalProps) {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [submitError, setSubmitError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const resumeInputRef = useRef<HTMLInputElement>(null);
   const submitDelayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isSubmittingRef = useRef(false);
 
-  isSubmittingRef.current = isSubmitting;
+  useEffect(() => {
+    isSubmittingRef.current = isSubmitting;
+  }, [isSubmitting]);
 
   const clearSubmitDelay = () => {
     if (submitDelayRef.current) {
@@ -66,6 +72,7 @@ export default function CareerApplicationModal({
     setForm(emptyForm);
     setResumeFile(null);
     setErrors({});
+    setSubmitError('');
     setIsSubmitting(false);
     clearSubmitDelay();
     if (resumeInputRef.current) {
@@ -107,12 +114,14 @@ export default function CareerApplicationModal({
   const updateField = (field: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
+    setSubmitError('');
   };
 
   const handleResumeChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0] ?? null;
     setResumeFile(file);
     setErrors((current) => ({ ...current, resume: undefined }));
+    setSubmitError('');
   };
 
   const validate = () => {
@@ -147,21 +156,48 @@ export default function CareerApplicationModal({
     return Object.keys(nextErrors).length === 0;
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (isSubmitting || !validate() || !resumeFile) return;
 
     setIsSubmitting(true);
+    setSubmitError('');
 
-    submitDelayRef.current = window.setTimeout(() => {
-      submitDelayRef.current = null;
+    const emailPayload = {
+      from_name: form.name.trim(),
+      from_email: form.email.trim(),
+      from_phone: `${form.phoneCountryCode} ${form.phoneNumber.trim()}`.trim(),
+      from_linkedin: form.linkedin.trim(),
+      message: [job.title ? `Role: ${job.title}` : '', form.message.trim()]
+        .filter(Boolean)
+        .join('\n\n'),
+    };
+
+    try {
+      await sendCareerApplicationEmail(emailPayload);
+
+      await new Promise<void>((resolve) => {
+        submitDelayRef.current = window.setTimeout(() => {
+          submitDelayRef.current = null;
+          resolve();
+        }, CAREERS_APPLICATION_SUBMIT_DELAY_MS);
+      });
+
       onSuccess(
         `Your application for ${job.title} has been received. We will review it and get back to you soon.`,
       );
-      setIsSubmitting(false);
       resetForm();
       onClose();
-    }, CAREERS_APPLICATION_SUBMIT_DELAY_MS);
+    } catch (error) {
+      clearSubmitDelay();
+      setIsSubmitting(false);
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'Something went wrong while sending your application. Please try again.';
+      setSubmitError(errorMessage);
+      onError(errorMessage);
+    }
   };
 
   return (
@@ -288,6 +324,8 @@ export default function CareerApplicationModal({
               />
             </div>
           </div>
+
+          {submitError ? <p className="careers-field-error">{submitError}</p> : null}
 
           <div className="careers-modal-actions">
             <button type="button" className="btn btn-outline-secondary" onClick={handleClose}>

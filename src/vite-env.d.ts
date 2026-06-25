@@ -1,5 +1,19 @@
 /// <reference types="vite/client" />
 
+interface ImportMetaEnv {
+  readonly VITE_RECAPTCHA_SITE_KEY?: string;
+  readonly VITE_CAREER_EMAILJS_SERVICE_ID?: string;
+  readonly VITE_CAREER_EMAILJS_TEMPLATE_ID?: string;
+  readonly VITE_CAREER_EMAILJS_PUBLIC_KEY?: string;
+  readonly VITE_CONTACT_EMAILJS_SERVICE_ID?: string;
+  readonly VITE_CONTACT_EMAILJS_TEMPLATE_ID?: string;
+  readonly VITE_CONTACT_EMAILJS_PUBLIC_KEY?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 interface IntlTelInstance {
   isValidNumber: () => boolean;
   getNumber: () => string;

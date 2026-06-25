@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
+import { isValidCareerPhoneNumber } from '../data/careers';
+import { DEFAULT_PHONE_COUNTRY_CODE } from '../data/phoneCountryCodes';
+import { sendContactEmail } from '../lib/sendContactEmail';
 
 type ContactFormOptions = {
   referer?: string;
 };
-
-const PHONE_PATTERN = /^\+?[\d\s().-]{7,24}$/;
 
 export function useContactForm({ referer = '/' }: ContactFormOptions = {}) {
   useEffect(() => {
@@ -24,7 +25,7 @@ export function useContactForm({ referer = '/' }: ContactFormOptions = {}) {
       statusTimer = setTimeout(() => {
         formStatus.classList.add('d-none');
         formStatus.textContent = '';
-      }, 5000);
+      }, 6000);
     };
 
     const showFormSuccess = (message: string) => {
@@ -41,7 +42,6 @@ export function useContactForm({ referer = '/' }: ContactFormOptions = {}) {
       }, 6000);
     };
 
-    const preselectQuery = new URLSearchParams(window.location.search).get('param');
     const cleanups: Array<() => void> = [];
 
     const forms = document.querySelectorAll<HTMLFormElement>('form#contact-form');
@@ -60,39 +60,36 @@ export function useContactForm({ referer = '/' }: ContactFormOptions = {}) {
         refererInput.value = referer;
       }
 
+      const phoneCountrySelect = form.querySelector<HTMLSelectElement>(
+        'select[name="phone_country_code"]',
+      );
       const phoneInput = form.querySelector<HTMLInputElement>('input[name="phone"]');
       const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
       const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]');
-      const querySelect = form.querySelector<HTMLSelectElement>('select[name="query"]');
       const messageInput = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
       const submitBtn = form.querySelector<HTMLButtonElement>('#contact_submit_btn');
+      const phoneField = form.querySelector<HTMLElement>('.phone-country-input');
 
       const nameError = form.querySelector<HTMLElement>('#name_error');
       const emailError = form.querySelector<HTMLElement>('#email_error');
       const phoneError = form.querySelector<HTMLElement>('#phone_error');
-      const queryError = form.querySelector<HTMLElement>('#query_error');
       const messageError = form.querySelector<HTMLElement>('#message_error');
 
-      if (querySelect && preselectQuery) {
-        const normalized = preselectQuery.trim().toLowerCase();
-        const match = Array.from(querySelect.options).find(
-          (opt) => opt.value.toLowerCase() === normalized,
-        );
-        if (match) {
-          querySelect.value = match.value;
-        }
-      }
-
-      const onSubmit = (event: SubmitEvent) => {
+      const onSubmit = async (event: SubmitEvent) => {
         const nameRegex = /^[A-Za-z\s]+$/;
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const countryCode = phoneCountrySelect?.value.trim() || DEFAULT_PHONE_COUNTRY_CODE;
+        const localPhoneNumber = phoneInput?.value.trim() ?? '';
 
         if (nameError) nameError.textContent = '';
         if (emailError) emailError.textContent = '';
         if (phoneError) phoneError.textContent = '';
-        if (queryError) queryError.textContent = '';
         if (messageError) messageError.textContent = '';
-        if (formStatus) formStatus.textContent = '';
+        phoneField?.classList.remove('phone-country-input--invalid');
+        if (formStatus) {
+          formStatus.classList.add('d-none');
+          formStatus.textContent = '';
+        }
 
         if (nameInput && !nameInput.value.trim()) {
           if (nameError) nameError.textContent = 'Please enter name';
@@ -134,27 +131,21 @@ export function useContactForm({ referer = '/' }: ContactFormOptions = {}) {
           return;
         }
 
-        if (phoneInput && !phoneInput.value.trim()) {
+        if (!localPhoneNumber) {
           if (phoneError) phoneError.textContent = 'Phone is required';
+          phoneField?.classList.add('phone-country-input--invalid');
           showFormNotice('Please fill in all required fields.');
           event.preventDefault();
-          phoneInput.focus();
+          phoneInput?.focus();
           return;
         }
 
-        if (phoneInput && !PHONE_PATTERN.test(phoneInput.value.trim())) {
-          if (phoneError) phoneError.textContent = 'Invalid phone number';
+        if (!isValidCareerPhoneNumber(countryCode, localPhoneNumber)) {
+          if (phoneError) phoneError.textContent = 'Please enter a valid phone number (7–12 digits)';
+          phoneField?.classList.add('phone-country-input--invalid');
           showFormNotice('Please correct the highlighted fields before sending your message.');
           event.preventDefault();
-          phoneInput.focus();
-          return;
-        }
-
-        if (querySelect && !querySelect.value) {
-          if (queryError) queryError.textContent = 'Please select a query type';
-          showFormNotice('Please fill in all required fields.');
-          event.preventDefault();
-          querySelect.focus();
+          phoneInput?.focus();
           return;
         }
 
@@ -170,12 +161,29 @@ export function useContactForm({ referer = '/' }: ContactFormOptions = {}) {
         submitBtn?.classList.add('is-loading');
         if (submitBtn) submitBtn.disabled = true;
 
-        window.setTimeout(() => {
+        const phoneNumber = `${countryCode} ${localPhoneNumber}`.trim();
+
+        try {
+          await sendContactEmail({
+            from_name: nameInput!.value.trim(),
+            from_email: emailInput!.value.trim(),
+            from_phone: phoneNumber,
+            message: messageInput!.value.trim(),
+          });
+
           form.reset();
+          if (phoneCountrySelect) {
+            phoneCountrySelect.value = DEFAULT_PHONE_COUNTRY_CODE;
+          }
           showFormSuccess('Thank you for reaching out. Our team will get back to you shortly.');
+        } catch (error) {
+          const fallbackMessage =
+            'Something went wrong while sending your message. Please try again.';
+          showFormNotice(error instanceof Error ? error.message : fallbackMessage);
+        } finally {
           submitBtn?.classList.remove('is-loading');
           if (submitBtn) submitBtn.disabled = false;
-        }, 300);
+        }
       };
 
       form.addEventListener('submit', onSubmit);

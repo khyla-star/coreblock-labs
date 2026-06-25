@@ -1,0 +1,39 @@
+.phone-country-field {
+  width: 100%;
+}
+
+.phone-country-input {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.phone-country-input--invalid .form-control,
+.phone-country-input--invalid .form-select {
+  border-color: #dc3545;
+}
+
+.phone-country-input__code {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 7.25rem;
+  max-width: 9.5rem;
+  padding-right: 1.75rem;
+  font-size: 0.9rem;
+}
+
+.phone-country-input__number {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-page .phone-country-input .form-control,
+.contact-page .phone-country-input .form-select {
+  min-height: 48px;
+}
+
+.contact-page .phone-country-input__code {
+  min-width: 7.5rem;
+  max-width: 10rem;
+}
